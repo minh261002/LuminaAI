@@ -1,6 +1,6 @@
 "use client";
 
-import { LogoIcon } from '@/components/logo'
+import { LogoIcon } from '@/components/ui/logo'
 import GoogleAuth from '@/components/oauth/google';
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
