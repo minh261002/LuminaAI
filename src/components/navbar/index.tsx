@@ -30,12 +30,12 @@ const Navbar = () => {
     const tabs: TabProps[] = [
         {
             label: "Canvas",
-            href: `/dashboard//canvas?project=${projectId}`,
+            href: `/dashboard/${me.name}/canvas?project=${projectId}`,
             icon: <Hash className='h-4 w-4' />
         },
         {
             label: "Style Guide",
-            href: `/dashboard//style-guide?project=${projectId}`,
+            href: `/dashboard/${me.name}/style-guide?project=${projectId}`,
             icon: <LayoutTemplate className='h-4 w-4' />
         }
     ]
@@ -98,11 +98,11 @@ const Navbar = () => {
                 <span className='text-sm text-white/50'>TODO: credits</span>
                 <Button
                     variant={"secondary"}
-                    className='rounded-full w-12 h-12 flex items-center justify-center backdrop-blur-xl bg-white/[0.08] border border-white/[0.12] saturate-150 hover:bg-white/[0.12]'
+                    className='rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-xl bg-white/[0.08] border border-white/[0.12] saturate-150 hover:bg-white/[0.12]'
                 >
                     <CircleQuestionMark className='size-5 text-white' />
                 </Button>
-                <Avatar className='size-12 ml-2'>
+                <Avatar className='size-10 ml-2'>
                     <AvatarImage src={me.image || ''} />
                     <AvatarFallback>
                         <User className='size-5 text-black' />

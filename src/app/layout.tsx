@@ -49,7 +49,7 @@ export default async function RootLayout({
             >
               <ReduxProvider preloadedState={{ profile }}>
                 {children}
-                <Toaster />
+                <Toaster richColors duration={1500} position="top-center" />
               </ReduxProvider>
             </ThemeProvider>
           </ConvexClientProvider>
