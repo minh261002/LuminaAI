@@ -4,7 +4,10 @@ import "./globals.css";
 import { ThemeProvider } from "@/theme/provider";
 import { Toaster } from "@/components/ui/sonner";
 import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
-import { ConvexClientProvider } from "@/convex/ConvexClientProvider";
+import { ConvexClientProvider } from "@/convex/provider";
+import ReduxProvider from "@/redux/provider";
+import { ProfileQuery } from "@/convex/query.config";
+import { ConvexUserRaw, normalizeProfile } from "@/types/user";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,11 +24,14 @@ export const metadata: Metadata = {
   description: "Lumina Ai is a tool that allows you to convert your sketches to designs.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const rawProfile = await ProfileQuery()
+  const profile = normalizeProfile(rawProfile._valueJSON as unknown as ConvexUserRaw)
+
   return (
     <ConvexAuthNextjsServerProvider>
       <html lang="en"
@@ -41,8 +47,10 @@ export default function RootLayout({
               enableSystem
               disableTransitionOnChange
             >
-              {children}
-              <Toaster />
+              <ReduxProvider preloadedState={{ profile }}>
+                {children}
+                <Toaster />
+              </ReduxProvider>
             </ThemeProvider>
           </ConvexClientProvider>
         </body>
