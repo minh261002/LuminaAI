@@ -1,3 +1,4 @@
+import Navbar from '@/components/navbar'
 import { SubscriptionEntitlementQuery } from '@/convex/query.config'
 import { combinedSlug } from '@/lib/utils'
 import { redirect } from 'next/navigation'
@@ -16,6 +17,7 @@ const Layout = async (
     // }
     return (
         <div>
+            <Navbar />
             {children}
         </div>
     )
