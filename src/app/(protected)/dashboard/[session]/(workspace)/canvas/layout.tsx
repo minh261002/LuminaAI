@@ -1,3 +1,4 @@
+import Toolbar from '@/components/canvas/toolbar'
 import React from 'react'
 
 const CanvasLayout = (
@@ -8,9 +9,10 @@ const CanvasLayout = (
     }
 ) => {
     return (
-        <>
+        <div className='w-full h-screen'>
             {children}
-        </>
+            <Toolbar />
+        </div>
     )
 }
 

@@ -36,6 +36,7 @@ export default async function RootLayout({
     <ConvexAuthNextjsServerProvider>
       <html lang="en"
         suppressHydrationWarning
+        className="bg-background"
       >
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}

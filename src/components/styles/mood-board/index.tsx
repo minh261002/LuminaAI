@@ -134,7 +134,7 @@ const Moodboard = ({ guideImages }: Props) => {
 
             <Button className='w-fit'>Generate With Ai</Button>
 
-            {images.length > 5 && (
+            {images.length >= 5 && (
                 <div className='text-center p-4 bg-muted/50 rounded-2xl'>
                     <p className='text-sm text-muted-foreground'>
                         Maximun of 5 images reached. Remove an image to add more.
